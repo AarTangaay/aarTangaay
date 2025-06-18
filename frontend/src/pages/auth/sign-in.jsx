@@ -28,11 +28,11 @@ export function SignIn() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-orange-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-gray-100 flex items-center justify-center p-4">
       <Card className="w-full max-w-md shadow-xl overflow-hidden">
         <CardHeader
           floated={false}
-          className="bg-orange-600 flex items-center justify-center py-4 gap-2"
+          className="bg-blue-600 flex items-center justify-center py-4 gap-2"
         >
           <img
             src="/img/logo-senegal.jpg"
@@ -46,7 +46,7 @@ export function SignIn() {
 
         <CardBody className="p-8">
           <div className="text-center mb-8">
-            <Typography variant="h5" className="font-bold text-orange-800">
+            <Typography variant="h5" className="font-bold text-blue-800">
               Se Connecter
             </Typography>
             <Typography variant="small" className="text-gray-600 mt-2">
@@ -73,7 +73,7 @@ export function SignIn() {
                 <Input
                   size="lg"
                   placeholder="7XXXXXXXX"
-                  className="!border-gray-300 focus:!border-orange-500 pl-10"
+                  className="!border-gray-300 focus:!border-blue-500 pl-10"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   required
@@ -93,7 +93,7 @@ export function SignIn() {
                   type="password"
                   size="lg"
                   placeholder="••••••••"
-                  className="!border-gray-300 focus:!border-orange-500 pl-10"
+                  className="!border-gray-300 focus:!border-blue-500 pl-10"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
@@ -103,7 +103,7 @@ export function SignIn() {
 
             <Button
               type="submit"
-              className="bg-orange-600 hover:bg-orange-700 w-full flex items-center justify-center gap-2"
+              className="bg-blue-600 hover:bg-blue-700 w-full flex items-center justify-center gap-2"
               disabled={loading}
             >
               {loading ? (
@@ -122,7 +122,7 @@ export function SignIn() {
               Vous n'avez pas un compte ?{" "}
               <Link
                 to="/auth/sign-up"
-                className="font-medium text-orange-600 hover:underline"
+                className="font-medium text-blue-600 hover:underline"
               >
                 Cree un compte
               </Link>
