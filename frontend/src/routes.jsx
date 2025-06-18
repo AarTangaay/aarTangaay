@@ -41,6 +41,7 @@ export const routes = [
         path: "/notifications",
         element: <Notifications />,
       },
+      
     ],
   },
   {
