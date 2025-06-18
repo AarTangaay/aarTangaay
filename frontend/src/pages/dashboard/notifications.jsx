@@ -68,6 +68,7 @@ export function Notifications() {
       read: true
     }
   ];
+const today = new Date();
 
   const stats = [
     { label: "Alertes actives", value: 12, trend: "up" },
@@ -91,7 +92,7 @@ export function Notifications() {
         <div className="flex items-center gap-2">
           <Button variant="outlined" className="flex items-center gap-2">
             <CalendarIcon className="h-4 w-4" />
-            <span>15 Juin 2023</span>
+            <span>{today.toLocaleDateString()}</span>
           </Button>
           <Tooltip content="Actualiser les données">
             <IconButton variant="text">
