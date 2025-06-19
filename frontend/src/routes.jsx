@@ -7,7 +7,7 @@ import {
   RectangleStackIcon,
   ExclamationTriangleIcon,
 } from "@heroicons/react/24/solid";
-import { Home, Profile, Tables, Notifications } from "@/pages/dashboard";
+import { Home, Profile, Notifications,HealthCentersMap } from "@/pages/dashboard";
 import {SignIn , SignUp} from "@/pages/auth";
 import Alert from "./pages/dashboard/alert";
 
@@ -33,9 +33,9 @@ export const routes = [
       },
       {
         icon: <TableCellsIcon {...icon} />,
-        name: "tables",
-        path: "/tables",
-        element: <Tables />,
+        name: "Ressources ",
+        path: "/ressources",
+        element: <HealthCentersMap />,
       },
       {
         icon: <InformationCircleIcon {...icon} />,
@@ -58,15 +58,9 @@ export const routes = [
     pages: [
       {
         icon: <ServerStackIcon {...icon} />,
-        name: "sign in",
+        name: "Se Connecter",
         path: "/sign-in",
         element: <SignIn />,
-      },
-      {
-        icon: <RectangleStackIcon {...icon} />,
-        name: "sign up",
-        path: "/sign-up",
-        element: <SignUp />,
       },
     ],
   },
