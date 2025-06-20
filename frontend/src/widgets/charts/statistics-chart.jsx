@@ -12,7 +12,20 @@ export function StatisticsChart({ color, chart, title, description, footer }) {
   return (
     <Card className="border border-blue-gray-100 shadow-sm">
       <CardHeader variant="gradient" color={color} floated={false} shadow={false}>
-        <Chart {...chart} />
+        {/* <Chart {...chart} /> */}
+        <Chart
+          options={{
+            chart: chart.chart,
+            xaxis: chart.xaxis,
+            stroke: chart.stroke,
+            colors: chart.colors,
+            fill: chart.fill,
+            labels: chart.labels,
+          }}
+          series={chart.series}
+          type={chart.chart?.type}
+          height={chart.chart?.height}
+        />
       </CardHeader>
       <CardBody className="px-6 pt-0">
         <Typography variant="h6" color="blue-gray">

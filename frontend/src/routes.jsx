@@ -10,6 +10,7 @@ import {
 import { Home, Profile, Notifications,HealthCentersMap } from "@/pages/dashboard";
 import {SignIn , SignUp} from "@/pages/auth";
 import Alert from "./pages/dashboard/alert";
+import Statistics from "./pages/dashboard/statistics";
 
 const icon = {
   className: "w-5 h-5 text-inherit",
@@ -48,6 +49,12 @@ export const routes = [
         name: "alerts",
         path: "/alerts",
         element: <Alert />,
+      },
+      {
+        icon: <ExclamationTriangleIcon {...icon} />,
+        name: "statistics",
+        path: "/statistics",
+        element: <Statistics />,
       },
       
     ],
