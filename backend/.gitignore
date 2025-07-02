@@ -1,0 +1,60 @@
+# Python
+*.pyc
+*.pyo
+__pycache__/
+*.pyd
+*.pdb
+*.log
+*.sqlite3
+*.db
+
+# Django
+*.log
+*.pot
+*.pyc
+*.pyo
+__pycache__/
+db.sqlite3
+media/
+
+# Environnements virtuels
+.env/
+.venv/
+venv/
+env/
+
+# Fichiers de configuration d'IDE
+.vscode/
+.idea/
+
+# Fichiers de configuration de l'éditeur
+*~  # backup files
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers de migrations
+*/migrations/*
+!*/migrations/__init__.py
+
+# Fichiers de test
+coverage/
+nosetests.xml
+test_*.xml
+tox.ini
+*.cover
+*.py,cover
+
+# Fichiers générés par Django
+staticfiles/
+
+# Pour un projet Django avec Docker (si tu utilises Docker)
+.docker/
+docker-compose.override.yml
+
+# Caches
+.cache/
+
+# Fichiers secrets
+*.env
