@@ -69,6 +69,12 @@ export const routes = [
         path: "/sign-in",
         element: <SignIn />,
       },
+      {
+        icon: <ServerStackIcon {...icon} />,
+        name: "Cree un compte",
+        path: "/sign-up",
+        element: <SignUp />,
+      },
     ],
   },
 ];

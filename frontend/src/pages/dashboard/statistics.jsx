@@ -235,31 +235,55 @@ export function Statistics() {
 
       {/* Main Charts */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-        <StatisticsChart
-            color="blue"
-            chart={temperatureData}
-            title="Évolution des Températures"
-            description="Moyennes journalières sur 7 jours"
-            footer={
-            <div className="flex items-center gap-2 text-blue-gray-600">
-                <CalendarIcon className="h-4 w-4" />
-                <Typography variant="small">Données mises à jour il y a 15min</Typography>
-            </div>
-            }
+        <Card className="border border-blue-gray-100 shadow-sm">
+      <CardHeader floated={false} shadow={false} className="border-b border-blue-gray-100 p-4">
+        <Typography variant="h5" color="blue-gray">
+          Évolution des Températures
+        </Typography>
+      </CardHeader>
+      <CardBody className="p-4">
+        <Chart
+          options={temperatureData.chart}
+          series={temperatureData.series}
+          type={temperatureData.chart.type}
+          height={temperatureData.chart.height}
         />
+      </CardBody>
+      <CardFooter className="border-t border-blue-gray-100 p-4">
+        <div className="flex items-center gap-2 text-blue-gray-600">
+          <CalendarIcon className="h-4 w-4" />
+          <Typography variant="small">
+            Données mises à jour il y a 15min
+          </Typography>
+        </div>
+      </CardFooter>
+    </Card>
 
-        <StatisticsChart
-            color="red"
-            chart={alertTrends}
-            title="Tendances des Alertes"
-            description="Alertes rouges et orange par mois"
-            footer={
-            <div className="flex items-center gap-2 text-blue-gray-600">
-                <CalendarIcon className="h-4 w-4" />
-                <Typography variant="small">Données mensuelles</Typography>
-            </div>
-            }
-        />
+
+        <Card className="border border-blue-gray-100 shadow-sm">
+  <CardHeader floated={false} shadow={false} className="border-b border-blue-gray-100 p-4">
+    <Typography variant="h5" color="blue-gray">
+      Tendances des Alertes
+    </Typography>
+  </CardHeader>
+  <CardBody className="p-4">
+    <Chart
+      options={alertTrends.chart}
+      series={alertTrends.series}
+      type={alertTrends.chart.type}
+      height={alertTrends.chart.height}
+    />
+  </CardBody>
+  <CardFooter className="border-t border-blue-gray-100 p-4">
+    <div className="flex items-center gap-2 text-blue-gray-600">
+      <CalendarIcon className="h-4 w-4" />
+      <Typography variant="small">
+        Données mensuelles
+      </Typography>
+    </div>
+  </CardFooter>
+</Card>
+
         </div>
 
       {/* Second Row */}
