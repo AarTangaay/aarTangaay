@@ -6,6 +6,10 @@ import {
   ServerStackIcon,
   RectangleStackIcon,
   ExclamationTriangleIcon,
+  BellIcon,
+  ChartBarIcon,
+  ArchiveBoxIcon,
+  UserIcon,
 } from "@heroicons/react/24/solid";
 import { Home, Profile, Notifications,HealthCentersMap } from "@/pages/dashboard";
 import {SignIn , SignUp} from "@/pages/auth";
@@ -27,22 +31,10 @@ export const routes = [
         element: <Home />,
       },
       {
-        icon: <UserCircleIcon {...icon} />,
-        name: "profile",
-        path: "/profile",
-        element: <Profile />,
-      },
-      {
-        icon: <TableCellsIcon {...icon} />,
+        icon: <ArchiveBoxIcon {...icon} />,
         name: "Ressources ",
         path: "/ressources",
         element: <HealthCentersMap />,
-      },
-      {
-        icon: <InformationCircleIcon {...icon} />,
-        name: "notifications",
-        path: "/notifications",
-        element: <Notifications />,
       },
       {
         icon: <ExclamationTriangleIcon {...icon} />,
@@ -51,27 +43,38 @@ export const routes = [
         element: <Alert />,
       },
       {
-        icon: <ExclamationTriangleIcon {...icon} />,
+        // icon: <BellIcon {...icon} />,
+        // name: "notifications",
+        path: "/notifications",
+        element: <Notifications />,
+      },
+      {
+        icon: <ChartBarIcon {...icon} />,
         name: "statistics",
         path: "/statistics",
         element: <Statistics />,
       },
-      
+            {
+        icon: <UserCircleIcon {...icon} />,
+        name: "profile",
+        path: "/profile",
+        element: <Profile />,
+      }, 
     ],
   },
   {
-    title: "auth pages",
+    // title: "auth pages",
     layout: "auth",
     pages: [
       {
-        icon: <ServerStackIcon {...icon} />,
-        name: "Se Connecter",
+        // icon: <UserIcon {...icon} />,
+        // name: "Se Connecter",
         path: "/sign-in",
         element: <SignIn />,
       },
       {
-        icon: <ServerStackIcon {...icon} />,
-        name: "Cree un compte",
+        // icon: <ServerStackIcon {...icon} />,
+        // name: "",
         path: "/sign-up",
         element: <SignUp />,
       },
