@@ -137,7 +137,7 @@ export function HealthCentersMap() {
       const heat = L.heatLayer(heatmapData, {
         radius: 25,
         blur: 15,
-        gradient: heatmapGradient,
+        // gradient: heatmapGradient,
         maxZoom: 17,
         gradient: {0.4: 'blue', 0.6: 'lime', 0.8: 'yellow', 1.0: 'red'}
       }).addTo(map);

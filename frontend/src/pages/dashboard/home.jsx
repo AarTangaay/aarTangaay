@@ -164,7 +164,7 @@ export function Home() {
   ];
 
   return (
-    <div className="p-4 md:p-6">
+    <div className="p-4 md:p-6 pb-20">
       {/* Header */}
       <div className="mb-8">
         <Typography variant="h2" className="text-2xl md:text-3xl font-bold text-gray-900">
