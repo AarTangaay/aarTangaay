@@ -26,7 +26,7 @@ import {
   FireIcon,
   ExclamationTriangleIcon
 } from "@heroicons/react/24/solid";
-
+import { fetchProfile } from "@/services/userService";
 export function Profile() {
   const [editMode, setEditMode] = React.useState(false);
   const [userData, setUserData] = React.useState({
@@ -62,6 +62,16 @@ export function Profile() {
       address: { ...prev.address, [name]: value }
     }));
   };
+  React.useEffect(() => {
+    // Simulate fetching user profile data
+    const fetchUserProfile = async () => {
+      const profileData = await fetchProfile();
+      setUserData(profileData);
+      console.log("User profile data fetched:", profileData);
+    };
+    fetchUserProfile();
+  }, []);
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br p-4 md:p-8">

@@ -1,7 +1,7 @@
 import { HomeIcon, BellIcon, UserCircleIcon, ReceiptPercentIcon } from "@heroicons/react/24/solid";
 import { Link, useLocation } from "react-router-dom";
 
-export function BottomNavbar() {
+function BottomNavbar() {
   const location = useLocation();
   
   // Définition des items de navigation
@@ -55,3 +55,4 @@ export function BottomNavbar() {
     </nav>
   );
 }
+export default BottomNavbar;

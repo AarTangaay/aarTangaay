@@ -8,7 +8,7 @@ import {
   Spinner
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
-import { FiPhone, FiLock, FiAlertCircle } from "react-icons/fi";
+import { FiPhone, FiLock, FiAlertCircle, FiMail } from "react-icons/fi";
 import { useContext, useState } from "react";
 import AuthContext from "@/context/authContext";
 
@@ -33,7 +33,7 @@ const { loginUser } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    registerUser(formData);
+    loginUser(formData.email, formData.password);
   };
 
   return (
@@ -70,21 +70,23 @@ const { loginUser } = useContext(AuthContext);
             </div>
           )}
 
-          <form onSubmit={handleRegister} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <Typography variant="small" className="mb-2 block text-gray-700">
-                Numéro de téléphone
+                Email
               </Typography>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <FiPhone className="text-gray-400" />
+                  <FiMail className="text-gray-400" />
                 </div>
                 <Input
+                  type="email"
                   size="lg"
-                  placeholder="7XXXXXXXX"
+                  name="email"
+                  placeholder="Adresse email"
                   className="!border-gray-300 focus:!border-blue-500 pl-10"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
+                  value={formData.email}
+                  onChange={handleChange}
                   required
                 />
               </div>
@@ -100,11 +102,12 @@ const { loginUser } = useContext(AuthContext);
                 </div>
                 <Input
                   type="password"
+                  name="password"
                   size="lg"
                   placeholder="••••••••"
                   className="!border-gray-300 focus:!border-blue-500 pl-10"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  value={formData.password}
+                  onChange={handleChange}
                   required
                 />
               </div>
