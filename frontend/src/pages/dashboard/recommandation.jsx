@@ -291,8 +291,8 @@ export function Recommendation() {
               
               <div className="flex items-center justify-between pt-3 border-t border-gray-100">
                 <Avatar
-                  src="https://www.sante.gouv.sn/sites/default/files/logo_ministere_sante.jpg"
-                  alt="Ministère de la Santé"
+                   src="/img/logo-senegal.jpg"
+                  alt="Logo Sénégal"
                   size="sm"
                   className="border border-gray-200"
                 />
