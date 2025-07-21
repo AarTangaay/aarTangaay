@@ -1,4 +1,4 @@
-import { HomeIcon, BellIcon, UserCircleIcon } from "@heroicons/react/24/solid";
+import { HomeIcon, BellIcon, UserCircleIcon, ReceiptPercentIcon } from "@heroicons/react/24/solid";
 import { Link, useLocation } from "react-router-dom";
 
 export function BottomNavbar() {
@@ -15,6 +15,11 @@ export function BottomNavbar() {
       icon: <BellIcon className="w-6 h-6" />,
       label: "Alertes",
       path: "/dashboard/alerts"
+    },
+    {
+      icon:<ReceiptPercentIcon className="w-6 h-6" />,
+      label: "Recommandations",
+      path: "/dashboard/recommandation"
     },
     {
       icon: <UserCircleIcon className="w-6 h-6" />,
