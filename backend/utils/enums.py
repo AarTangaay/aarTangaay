@@ -2,7 +2,8 @@ from enum import Enum
 
 class RoleEnum(Enum):
     ADMIN = "Administrateur"
-    EXPERT = "Expert"
+    AGENT = "Agent Sanitaire"
+    EXPERT = "Lanceur d'alerte"
     USER = "Utilisateur"
 
     def __str__(self):

@@ -67,7 +67,7 @@ Le projet utilise Django REST Framework. Les endpoints sont à définir dans tes
 
 - `AarTangaay/` : code source principal Django
 - `requirements.txt` : dépendances Python
-- `Dockerfile` et `docker-compose.yml` : configuration Docker
+- `docker-compose.yml` : configuration Docker
 
 ## Licence
 
