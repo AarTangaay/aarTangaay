@@ -62,20 +62,6 @@ export function SignUp() {
 
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <FiMail className="text-gray-400" />
-                </div>
-                <Input
-                  size="lg"
-                  placeholder="email@domain.com"
-                  className="!border-gray-300 focus:!border-blue-500 pl-10"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
-
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <FiLock className="text-gray-400" />
                 </div>
                 <Input
