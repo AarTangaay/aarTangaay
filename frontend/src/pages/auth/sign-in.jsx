@@ -9,7 +9,8 @@ import {
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import { FiPhone, FiLock, FiAlertCircle } from "react-icons/fi";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import AuthContext from "@/context/authContext";
 
 export function SignIn() {
   const [phone, setPhone] = useState("");
@@ -17,14 +18,22 @@ export function SignIn() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleRegister = (e) => {
+  const [formData, setFormData] = useState({
+  email: "",
+  password: ""
+});
+
+const { loginUser } = useContext(AuthContext);
+  const handleChange = (e) => {
+    setFormData({ 
+      ...formData, 
+      [e.target.name]: e.target.value 
+    });
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
-    // Simuler une inscription
-    setTimeout(() => {
-      setLoading(false);
-      // setError("Erreur lors de la création du compte");
-    }, 1500);
+    registerUser(formData);
   };
 
   return (
