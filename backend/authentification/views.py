@@ -121,7 +121,11 @@ class MeView(APIView):
     def get(self, request):
         user = request.user
         serializer = UserSerializer(user)
-        return Response(serializer.data)
+        serialized_data = serializer.data
+        
+        print("Serialized data:", serialized_data)
+        
+        return Response(serialized_data)
 
 
 class AdminDashboardView(APIView):

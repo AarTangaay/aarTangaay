@@ -46,19 +46,28 @@ class LoginSerializer(serializers.Serializer):
 
 
 class UserSerializer(serializers.Serializer):
-    # id = serializers.UUIDField(source='uuid', read_only=True)
-    class Meta:
-        model = User
-        fields = [
-            'user_id', 
-            'last_name',
-            'first_name', 
-            'email',
-            'phone_number', 
-            'is_active',
-            'is_staff', 
-            'role',
-            'created_at', 
-            'updated_at'
-            ]
-        read_only_fields = ['user_id', 'email', 'created_at', 'updated_at']
+    user_id = serializers.CharField(read_only=True)
+    last_name = serializers.CharField(read_only=True)
+    first_name = serializers.CharField(read_only=True)
+    email = serializers.EmailField(read_only=True)
+    phone_number = serializers.CharField(read_only=True)
+    is_active = serializers.BooleanField(read_only=True)
+    is_staff = serializers.BooleanField(read_only=True)
+    role = serializers.CharField(read_only=True)
+    created_at = serializers.DateTimeField(read_only=True)
+    updated_at = serializers.DateTimeField(read_only=True)
+    
+    def to_representation(self, instance):
+        """Extrait les données depuis l'objet User MongoDB"""
+        return {
+            'user_id': instance.user_id,
+            'last_name': instance.last_name,
+            'first_name': instance.first_name,
+            'email': instance.email,
+            'phone_number': instance.phone_number,
+            'is_active': instance.is_active,
+            'is_staff': instance.is_staff,
+            'role': instance.role,
+            'created_at': instance.created_at,
+            'updated_at': instance.updated_at,
+        }
