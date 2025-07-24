@@ -4,13 +4,72 @@ from rest_framework.decorators import action
 from .models import Notification
 from .serializers import NotificationSerializer
 from authentification.models import User
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
 
 class NotificationViewSet(viewsets.ViewSet):
+    @swagger_auto_schema(
+        operation_description="Lister toutes les notifications.",
+        responses={200: openapi.Response(
+            description="Liste des notifications",
+            examples={
+                "application/json": [
+                    {
+                        "id": "1",
+                        "libelle": "Alerte canicule",
+                        "type": "ALERTE",
+                        "date_envoi": "2024-07-24T12:00:00Z",
+                        "lue": False,
+                        "utilisateur": "662f1e7b8e4b0c001e8b4569",
+                        "vague_chaleur": "662f1e7b8e4b0c001e8b4568",
+                        "created_at": "2024-07-24T12:00:00Z",
+                        "updated_at": "2024-07-24T12:00:00Z"
+                    }
+                ]
+            }
+        )}
+    )
     def list(self, request):
         notifications = Notification.objects.all()
         serializer = NotificationSerializer(notifications, many=True)
         return Response(serializer.data)
     
+    @swagger_auto_schema(
+        operation_description="Créer une notification.",
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            required=["libelle", "type", "date_envoi", "utilisateur", "vague_chaleur"],
+            properties={
+                "libelle": openapi.Schema(type=openapi.TYPE_STRING, description="Texte de la notification"),
+                "type": openapi.Schema(type=openapi.TYPE_STRING, description="Type de notification"),
+                "date_envoi": openapi.Schema(type=openapi.TYPE_STRING, format="date-time", description="Date d'envoi"),
+                "utilisateur": openapi.Schema(type=openapi.TYPE_STRING, description="ID de l'utilisateur concerné"),
+                "vague_chaleur": openapi.Schema(type=openapi.TYPE_STRING, description="ID de la vague de chaleur concernée"),
+            }
+        ),
+        responses={
+            201: openapi.Response(
+                description="Notification créée",
+                examples={
+                    "application/json": {
+                        "id": "1",
+                        "libelle": "Alerte canicule",
+                        "type": "ALERTE",
+                        "date_envoi": "2024-07-24T12:00:00Z",
+                        "lue": False,
+                        "utilisateur": "662f1e7b8e4b0c001e8b4569",
+                        "vague_chaleur": "662f1e7b8e4b0c001e8b4568",
+                        "created_at": "2024-07-24T12:00:00Z",
+                        "updated_at": "2024-07-24T12:00:00Z"
+                    }
+                }
+            ),
+            400: openapi.Response(
+                description="Erreur de validation",
+                examples={"application/json": {"libelle": ["Ce champ est obligatoire."]}}
+            ),
+        }
+    )
     def create(self, request):
         serializer = NotificationSerializer(data=request.data)
         if serializer.is_valid():

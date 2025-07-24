@@ -6,6 +6,6 @@ router = DefaultRouter()
 router.register(r'zones-geographiques', ZoneGeographiqueViewSet, basename='zonegeographique')
 
 urlpatterns = [
-    path('api/', include(router.urls)),
+    path('', include(router.urls)),
 ]
 

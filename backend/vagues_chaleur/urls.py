@@ -6,6 +6,6 @@ router = DefaultRouter()
 router.register(r'vagues-chaleur', VagueChaleurViewSet, basename='vaguechaleur')
 
 urlpatterns = [
-    path('api/', include(router.urls)),
+    path('', include(router.urls)),
 ]
 

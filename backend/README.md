@@ -5,7 +5,7 @@ Projet Django utilisant MongoEngine pour MongoDB.
 ## Prérequis
 
 - Python 3.11+
-- Docker (optionnel mais recommandé)
+- Docker
 - MongoDB
 
 ## Installation

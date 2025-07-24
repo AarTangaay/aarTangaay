@@ -8,7 +8,7 @@ class VagueChaleur(Document):
     humidite = FloatField(required=True)
     date_debut = DateTimeField(required=True)
     date_fin = DateTimeField(required=True)
-    duree = DateTimeField(required=True)
+    duree = DateTimeField(required=True)    
     
     # Relations
     # Une vague de chaleur provient d'une zone géographique (0..*)

@@ -6,6 +6,6 @@ router = DefaultRouter()
 router.register(r'recommandations', RecommandationViewSet, basename='recommandation')
 
 urlpatterns = [
-    path('api/', include(router.urls)),
+    path('', include(router.urls)),
 ]
 

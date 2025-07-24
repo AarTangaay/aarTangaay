@@ -4,13 +4,64 @@ from rest_framework.decorators import action
 from .models import Statistique
 from .serializers import StatistiqueSerializer
 from vagues_chaleur.models import VagueChaleur
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
 
 class StatistiqueViewSet(viewsets.ViewSet):
+    @swagger_auto_schema(
+        operation_description="Lister toutes les statistiques.",
+        responses={200: openapi.Response(
+            description="Liste des statistiques",
+            examples={
+                "application/json": [
+                    {
+                        "id": "1",
+                        "nombre_vague": 3,
+                        "temperature_moyenne": 41.2,
+                        "vague_chaleur": "662f1e7b8e4b0c001e8b4568",
+                        "created_at": "2024-07-24T12:00:00Z",
+                        "updated_at": "2024-07-24T12:00:00Z"
+                    }
+                ]
+            }
+        )}
+    )
     def list(self, request):
         statistiques = Statistique.objects.all()
         serializer = StatistiqueSerializer(statistiques, many=True)
         return Response(serializer.data)
     
+    @swagger_auto_schema(
+        operation_description="Créer une statistique.",
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            required=["nombre_vague", "temperature_moyenne", "vague_chaleur"],
+            properties={
+                "nombre_vague": openapi.Schema(type=openapi.TYPE_INTEGER, description="Nombre de vagues de chaleur"),
+                "temperature_moyenne": openapi.Schema(type=openapi.TYPE_NUMBER, format="float", description="Température moyenne"),
+                "vague_chaleur": openapi.Schema(type=openapi.TYPE_STRING, description="ID de la vague de chaleur"),
+            }
+        ),
+        responses={
+            201: openapi.Response(
+                description="Statistique créée",
+                examples={
+                    "application/json": {
+                        "id": "1",
+                        "nombre_vague": 3,
+                        "temperature_moyenne": 41.2,
+                        "vague_chaleur": "662f1e7b8e4b0c001e8b4568",
+                        "created_at": "2024-07-24T12:00:00Z",
+                        "updated_at": "2024-07-24T12:00:00Z"
+                    }
+                }
+            ),
+            400: openapi.Response(
+                description="Erreur de validation",
+                examples={"application/json": {"nombre_vague": ["Ce champ est obligatoire."]}}
+            ),
+        }
+    )
     def create(self, request):
         serializer = StatistiqueSerializer(data=request.data)
         if serializer.is_valid():

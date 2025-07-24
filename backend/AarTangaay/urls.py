@@ -35,12 +35,12 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('authentification.urls')),
-    path('', include('zones_geographiques.urls')),
-    path('', include('vagues_chaleur.urls')),
-    path('', include('notifications.urls')),
-    path('', include('recommandations.urls')),
-    path('', include('statistiques.urls')),
+    path('api/', include('authentification.urls')),
+    path('api/', include('zones_geographiques.urls')),
+    path('api/', include('vagues_chaleur.urls')),
+    path('api/', include('notifications.urls')),
+    path('api/', include('recommandations.urls')),
+    path('api/', include('statistiques.urls')),
     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),

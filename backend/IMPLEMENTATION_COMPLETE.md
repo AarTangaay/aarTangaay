@@ -1,6 +1,6 @@
 # Implémentation du Backend AarTangaay
 
-Applications Créées
+Endpoints attendus
 
 ### 1. **zones_geographiques**
 - **Modèle** : `ZoneGeographique` avec les champs ville, rue, numero, latitude, longitude, rayon
