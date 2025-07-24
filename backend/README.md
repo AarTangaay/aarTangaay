@@ -13,7 +13,7 @@ Projet Django utilisant MongoEngine pour MongoDB.
 1. **Cloner le dépôt**
 
 ```bash
-git clone <url-du-repo>
+git clone <https://github.com/AarTangaay/aarTangaay>
 cd AarTangaay
 ```
 
