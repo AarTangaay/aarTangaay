@@ -6,13 +6,14 @@ import {
   ChartBarIcon,
   ArchiveBoxIcon,
 } from "@heroicons/react/24/solid";
-import { Home, Profile, Notifications, HealthCentersMap } from "@/pages/dashboard";
+import { Home, Profile, Notifications, HealthCentersMap, Recommendation } from "@/pages/dashboard";
 import { SignIn, SignUp } from "@/pages/auth";
 import Alert from "./pages/dashboard/alert";
 import Statistics from "./pages/dashboard/statistics";
 
 // Définissez l'objet icon avant son utilisation
 import { isPWA,isMobile } from "@/utils/platform";
+import { ReceiptPercentIcon } from "@heroicons/react/24/outline";
 const icon = {
   className: "w-5 h-5 text-inherit",
 };
@@ -55,6 +56,13 @@ export const routes = [
         path: "/statistics",
         element: <Statistics />,
         show: !isPWA()
+      },
+      {
+        icon: <ReceiptPercentIcon {...icon} />,
+        name: "recommandation",
+        path: "/recommendation",
+        element: <Recommendation />,
+        show: true,
       },
       {
         icon: <UserCircleIcon {...icon} />,
